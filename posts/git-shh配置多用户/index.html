@@ -1,12 +1,133 @@
-<!DOCTYPE html>
-<html lang="en-us">
-  <head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-    
-    <title>Git Shh配置多用户 | Feivorid Blog</title>
-    <meta name="viewport" content="width=device-width,minimum-scale=1">
-    <meta name="description" content="最近由于公司这边代码仓库也放在github上，而且要求用公司对应的账户登录，所以遇到了git提交代码时候两个github账号切换的问题。
+<!doctype html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<html
+  class="not-ready lg:text-base"
+  style="--bg: #faf8f1"
+  lang="en-us"
+  dir="ltr"
+>
+  <head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1, shrink-to-fit=no"
+  />
+
+  
+  <title>Git Shh配置多用户 - Feivorid Space</title>
+
+  
+  <meta name="theme-color" />
+
+  
+  
+  
+  
+  <meta name="description" content="最近由于公司这边代码仓库也放在github上，而且要求用公司对应的账户登录，所以遇到了git提交代码时候两个github账号切换的问题。
+First 先看一下我原来的ssh config里面github相关的配置入如下图：
+Host github.com HostName github.com IdentityFile ~/.ssh/id_rsa User git 目前是只有一个默认的github账户的情况下。
+Second 下面要在ssh新增一个配置：
+Host xxxx HostName github.com IdentityFile ~/.ssh/id_rsa_xxxx User git 注意这里的Host随便起的。
+Third 配置完ssh config之后，需要把用下面密钥配置的仓库重新设置一下 origin url;
+git remote -v 查看一下你原来的url,例如原来的url git@github.com:feivorid/aaaaaa.git，那么需要设置为
+git remote origin set-url git@xxxx:feivorid/aaaaaa.git 注意：这里的xxxx为第二个ssh 配置的host；
+设置完之后就可以正常push pull 代码了！" />
+  <meta name="author" content="Feivorid Space" />
+  
+
+  
+  
+  
+  
+  
+  
+  <link rel="preload stylesheet" as="style" href="https://feivorid.com/main.min.css" />
+
+  
+  
+  
+  
+  
+  <link rel="preload" as="image" href="https://feivorid.com/theme.png" />
+
+  
+  
+  
+  
+  
+
+  
+  
+  
+
+  
+  
+  <script
+    defer
+    src="https://feivorid.com/highlight.min.js"
+    onload="hljs.initHighlightingOnLoad();"
+  ></script>
+  
+
+  
+  
+  
+
+  
+  <link
+    rel="icon"
+    href="https://feivorid.com/favicon.ico"
+  />
+  <link
+    rel="apple-touch-icon"
+    href="https://feivorid.com/apple-touch-icon.png"
+  />
+
+  
+  <meta name="generator" content="Hugo 0.133.1">
+
+  
+  
+  
+  
+  
+
+
+  
+  
+  <meta itemprop="name" content="Git Shh配置多用户">
+  <meta itemprop="description" content="最近由于公司这边代码仓库也放在github上，而且要求用公司对应的账户登录，所以遇到了git提交代码时候两个github账号切换的问题。
 First 先看一下我原来的ssh config里面github相关的配置入如下图：
 Host github.com HostName github.com IdentityFile ~/.ssh/id_rsa User git 目前是只有一个默认的github账户的情况下。
 Second 下面要在ssh新增一个配置：
@@ -15,35 +136,13 @@ Third 配置完ssh config之后，需要把用下面密钥配置的仓库重新�
 git remote -v 查看一下你原来的url,例如原来的url git@github.com:feivorid/aaaaaa.git，那么需要设置为
 git remote origin set-url git@xxxx:feivorid/aaaaaa.git 注意：这里的xxxx为第二个ssh 配置的host；
 设置完之后就可以正常push pull 代码了！">
-    <meta name="generator" content="Hugo 0.133.1">
-    
-    
-    
-    
-      <meta name="robots" content="noindex, nofollow">
-    
-    
-
-    
-<link rel="stylesheet" href="/ananke/css/main.min.css" >
-
-
-
-    
-
-    
-      
-
-    
-
-    
-
-    
-      <link rel="canonical" href="http://localhost:1313/posts/git-shh%E9%85%8D%E7%BD%AE%E5%A4%9A%E7%94%A8%E6%88%B7/">
-    
-
-    <meta property="og:url" content="http://localhost:1313/posts/git-shh%E9%85%8D%E7%BD%AE%E5%A4%9A%E7%94%A8%E6%88%B7/">
-  <meta property="og:site_name" content="Feivorid Blog">
+  <meta itemprop="datePublished" content="2020-10-27T10:46:42+08:00">
+  <meta itemprop="dateModified" content="2020-10-27T10:46:42+08:00">
+  <meta itemprop="wordCount" content="44">
+  <meta itemprop="keywords" content="Git,GitHub">
+  
+  <meta property="og:url" content="https://feivorid.com/posts/git-shh%E9%85%8D%E7%BD%AE%E5%A4%9A%E7%94%A8%E6%88%B7/">
+  <meta property="og:site_name" content="Feivorid Space">
   <meta property="og:title" content="Git Shh配置多用户">
   <meta property="og:description" content="最近由于公司这边代码仓库也放在github上，而且要求用公司对应的账户登录，所以遇到了git提交代码时候两个github账号切换的问题。
 First 先看一下我原来的ssh config里面github相关的配置入如下图：
@@ -62,20 +161,8 @@ git remote origin set-url git@xxxx:feivorid/aaaaaa.git 注意：这里的xxxx为
     <meta property="article:tag" content="Git">
     <meta property="article:tag" content="GitHub">
 
-  <meta itemprop="name" content="Git Shh配置多用户">
-  <meta itemprop="description" content="最近由于公司这边代码仓库也放在github上，而且要求用公司对应的账户登录，所以遇到了git提交代码时候两个github账号切换的问题。
-First 先看一下我原来的ssh config里面github相关的配置入如下图：
-Host github.com HostName github.com IdentityFile ~/.ssh/id_rsa User git 目前是只有一个默认的github账户的情况下。
-Second 下面要在ssh新增一个配置：
-Host xxxx HostName github.com IdentityFile ~/.ssh/id_rsa_xxxx User git 注意这里的Host随便起的。
-Third 配置完ssh config之后，需要把用下面密钥配置的仓库重新设置一下 origin url;
-git remote -v 查看一下你原来的url,例如原来的url git@github.com:feivorid/aaaaaa.git，那么需要设置为
-git remote origin set-url git@xxxx:feivorid/aaaaaa.git 注意：这里的xxxx为第二个ssh 配置的host；
-设置完之后就可以正常push pull 代码了！">
-  <meta itemprop="datePublished" content="2020-10-27T10:46:42+08:00">
-  <meta itemprop="dateModified" content="2020-10-27T10:46:42+08:00">
-  <meta itemprop="wordCount" content="44">
-  <meta itemprop="keywords" content="Git,GitHub">
+  
+  
   <meta name="twitter:card" content="summary">
   <meta name="twitter:title" content="Git Shh配置多用户">
   <meta name="twitter:description" content="最近由于公司这边代码仓库也放在github上，而且要求用公司对应的账户登录，所以遇到了git提交代码时候两个github账号切换的问题。
@@ -88,78 +175,112 @@ git remote -v 查看一下你原来的url,例如原来的url git@github.com:feiv
 git remote origin set-url git@xxxx:feivorid/aaaaaa.git 注意：这里的xxxx为第二个ssh 配置的host；
 设置完之后就可以正常push pull 代码了！">
 
-	
-  </head>
+  
+  
 
-  <body class="ma0 avenir bg-near-white">
+  
+  <link rel="canonical" href="https://feivorid.com/posts/git-shh%E9%85%8D%E7%BD%AE%E5%A4%9A%E7%94%A8%E6%88%B7/" />
+  
+  
+</head>
+
+  <body class="text-black duration-200 ease-out dark:text-white">
+    <header class="mx-auto flex h-[4.5rem] max-w-[--w] px-8 lg:justify-center">
+  <div class="relative z-50 ltr:mr-auto rtl:ml-auto flex items-center">
+    <a class="-translate-y-[1px] text-2xl font-medium" href="https://feivorid.com/"
+      >Feivorid Space</a
+    >
+    <div
+      class="btn-dark text-[0] ltr:ml-4 rtl:mr-4 h-6 w-6 shrink-0 cursor-pointer [background:url(./theme.png)_left_center/_auto_theme('spacing.6')_no-repeat] [transition:_background-position_0.4s_steps(5)] dark:[background-position:right]"
+      role="button"
+      aria-label="Dark"
+    ></div>
+  </div>
+
+  <div
+    class="btn-menu relative z-50 ltr:-mr-8 rtl:-ml-8 flex h-[4.5rem] w-[5rem] shrink-0 cursor-pointer flex-col items-center justify-center gap-2.5 lg:hidden"
+    role="button"
+    aria-label="Menu"
+  ></div>
+
+  
+
+  <script>
+    
+    const htmlClass = document.documentElement.classList;
+    setTimeout(() => {
+      htmlClass.remove('not-ready');
+    }, 10);
 
     
-   
-  
+    const btnMenu = document.querySelector('.btn-menu');
+    btnMenu.addEventListener('click', () => {
+      htmlClass.toggle('open');
+    });
 
-  <header>
-    <div class="bg-black">
-      <nav class="pv3 ph3 ph4-ns" role="navigation">
-  <div class="flex-l justify-between items-center center">
-    <a href="/" class="f3 fw2 hover-white no-underline white-90 dib">
-      
-        Feivorid Blog
-      
-    </a>
-    <div class="flex-l items-center">
-      
+    
+    const metaTheme = document.querySelector('meta[name="theme-color"]');
+    const lightBg = '#faf8f1'.replace(/"/g, '');
+    const setDark = (isDark) => {
+      metaTheme.setAttribute('content', isDark ? '#000' : lightBg);
+      htmlClass[isDark ? 'add' : 'remove']('dark');
+      localStorage.setItem('dark', isDark);
+    };
 
-      
-      
-<div class="ananke-socials">
-  
-</div>
+    
+    const darkScheme = window.matchMedia('(prefers-color-scheme: dark)');
+    if (htmlClass.contains('dark')) {
+      setDark(true);
+    } else {
+      const darkVal = localStorage.getItem('dark');
+      setDark(darkVal ? darkVal === 'true' : darkScheme.matches);
+    }
 
-    </div>
+    
+    darkScheme.addEventListener('change', (event) => {
+      setDark(event.matches);
+    });
+
+    
+    const btnDark = document.querySelector('.btn-dark');
+    btnDark.addEventListener('click', () => {
+      setDark(localStorage.getItem('dark') !== 'true');
+    });
+  </script>
+
+  <div
+    class="nav-wrapper fixed inset-x-0 top-full z-40 flex h-full select-none flex-col justify-center pb-16 duration-200 dark:bg-black lg:static lg:h-auto lg:flex-row lg:!bg-transparent lg:pb-0 lg:transition-none"
+  >
+    
+    
+
+    
   </div>
-</nav>
+</header>
 
+
+    <main
+      class="prose prose-neutral relative mx-auto min-h-[calc(100%-9rem)] max-w-[--w] px-8 pb-16 pt-14 dark:prose-invert"
+    >
+      
+
+<article>
+  <header class="mb-14">
+    <h1 class="!my-0 pb-2.5">Git Shh配置多用户</h1>
+
+    
+    <div class="text-xs antialiased opacity-60">
+      
+      <time>Oct 27, 2020</time>
+      
+      
+      
+      
     </div>
+    
   </header>
 
-
-
-    <main class="pb7" role="main">
-      
-  
-  <article class="flex-l flex-wrap justify-between mw8 center ph3">
-    <header class="mt4 w-100">
-      <aside class="instapaper_ignoref b helvetica tracked ttu">
-          
-        Posts
-      </aside>
-      
-
-
-
-
-
-
-
-
-
-
-  <div id="sharing" class="mt3 ananke-socials">
-    
-  </div>
-
-
-      <h1 class="f1 athelas mt3 mb1">Git Shh配置多用户</h1>
-      
-      
-      
-      <time class="f6 mv4 dib tracked" datetime="2020-10-27T10:46:42+08:00">October 27, 2020</time>
-      
-
-      
-      
-    </header>
-    <div class="nested-copy-line-height lh-copy serif f4 nested-links mid-gray pr4-l w-two-thirds-l"><blockquote>
+  <section><blockquote>
 <p>最近由于公司这边代码仓库也放在github上，而且要求用公司对应的账户登录，所以遇到了git提交代码时候两个github账号切换的问题。</p>
 </blockquote>
 <h3 id="first">First</h3>
@@ -183,44 +304,78 @@ User git
 <pre tabindex="0"><code>git remote origin set-url git@xxxx:feivorid/aaaaaa.git
 </code></pre><p>注意：这里的xxxx为第二个ssh 配置的host；</p>
 <p>设置完之后就可以正常push pull 代码了！</p>
-<ul class="pa0">
+</section>
+
   
-   <li class="list di">
-     <a href="/tags/git/" class="link f5 grow no-underline br-pill ba ph3 pv2 mb2 dib black sans-serif">Git</a>
-   </li>
   
-   <li class="list di">
-     <a href="/tags/github/" class="link f5 grow no-underline br-pill ba ph3 pv2 mb2 dib black sans-serif">GitHub</a>
-   </li>
+  <footer class="mt-12 flex flex-wrap">
+     
+    <a
+      class="mb-1.5 ltr:mr-1.5 rtl:ml-1.5 rounded-lg bg-black/[3%] px-5 py-1 no-underline hover:bg-black/[6%] dark:bg-white/[8%] dark:hover:bg-white/[12%]"
+      href="https://feivorid.com/tags/git"
+      >Git</a
+    >
+     
+    <a
+      class="mb-1.5 ltr:mr-1.5 rtl:ml-1.5 rounded-lg bg-black/[3%] px-5 py-1 no-underline hover:bg-black/[6%] dark:bg-white/[8%] dark:hover:bg-white/[12%]"
+      href="https://feivorid.com/tags/github"
+      >GitHub</a
+    >
+    
+  </footer>
   
-</ul>
-<div class="mt6 instapaper_ignoref">
-      
-      
-      </div>
-    </div>
 
-    <aside class="w-30-l mt6-l">
+  
+  
+  
+  
+  <nav
+    class="mt-24 flex overflow-hidden rounded-xl bg-black/[3%] text-lg !leading-[1.2] *:flex *:w-1/2 *:items-center *:p-5 *:font-medium *:no-underline dark:bg-white/[8%] [&>*:hover]:bg-black/[2%] dark:[&>*:hover]:bg-white/[3%]"
+  >
+    
+    
+    <a class="ltr:ml-auto rtl:mr-auto justify-end pl-3" href="https://feivorid.com/posts/2019%E5%B9%B4%E6%80%BB%E7%BB%93/"
+      ><span>2019年总结</span><span class="ltr:ml-1.5 rtl:mr-1.5">→</span></a
+    >
+    
+  </nav>
+  
+  
+
+  
+  
+
+  
+  
+
+  
 
 
+  
+</article>
 
-
-</aside>
-
-  </article>
 
     </main>
-    <footer class="bg-black bottom-0 w-100 pa3" role="contentinfo">
-  <div class="flex justify-between">
-  <a class="f4 fw4 hover-white no-underline white-70 dn dib-ns pv2 ph3" href="http://localhost:1313/" >
-    &copy;  Feivorid Blog 2024 
-  </a>
-    <div>
-<div class="ananke-socials">
+
+    <footer
+  class="mx-auto flex h-[4.5rem] max-w-[--w] items-center px-8 text-xs uppercase tracking-wider opacity-60"
+>
+  <div class="mr-auto">
   
-</div>
-</div>
+    &copy; 2024
+    <a class="link" href="https://feivorid.com/">Feivorid Space</a>
+  
   </div>
+  <a class="link mx-6" href="https://gohugo.io/" rel="noopener" target="_blank"
+    >powered by hugo️️</a
+  >️
+  <a
+    class="link"
+    href="https://github.com/nanxiaobei/hugo-paper"
+    rel="noopener"
+    target="_blank"
+    >hugo-paper</a
+  >
 </footer>
 
   </body>
