@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>GitHub on Feivorid Blog</title>
+    <link>http://localhost:1313/tags/github/</link>
+    <description>Recent content in GitHub on Feivorid Blog</description>
+    <generator>Hugo</generator>
+    <language>en-us</language>
+    <lastBuildDate>Tue, 27 Oct 2020 10:46:42 +0800</lastBuildDate>
+    <atom:link href="http://localhost:1313/tags/github/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Git Shh配置多用户</title>
+      <link>http://localhost:1313/posts/git-shh%E9%85%8D%E7%BD%AE%E5%A4%9A%E7%94%A8%E6%88%B7/</link>
+      <pubDate>Tue, 27 Oct 2020 10:46:42 +0800</pubDate>
+      <guid>http://localhost:1313/posts/git-shh%E9%85%8D%E7%BD%AE%E5%A4%9A%E7%94%A8%E6%88%B7/</guid>
+      <description>最近由于公司这边代码仓库也放在github上，而且要求用公司对应的账户登录，所以遇到了git提交代码时候两个github账号切换的问题。&#xA;First 先看一下我原来的ssh config里面github相关的配置入如下图：&#xA;Host github.com HostName github.com IdentityFile ~/.ssh/id_rsa User git 目前是只有一个默认的github账户的情况下。&#xA;Second 下面要在ssh新增一个配置：&#xA;Host xxxx HostName github.com IdentityFile ~/.ssh/id_rsa_xxxx User git 注意这里的Host随便起的。&#xA;Third 配置完ssh config之后，需要把用下面密钥配置的仓库重新设置一下 origin url;&#xA;git remote -v 查看一下你原来的url,例如原来的url git@github.com:feivorid/aaaaaa.git，那么需要设置为&#xA;git remote origin set-url git@xxxx:feivorid/aaaaaa.git 注意：这里的xxxx为第二个ssh 配置的host；&#xA;设置完之后就可以正常push pull 代码了！</description>
+    </item>
+  </channel>
+</rss>
